@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :listings, only: [:index]
+  resources :listings, only: [:index, :new, :create]
 end

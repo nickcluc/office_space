@@ -10,7 +10,7 @@ feature "User views all listings" do
   # Must see all the available listings
   # must see each listings city, state, and average daily rate in dollars
 
-  it 'sees a title' do
+  it 'sees the page title' do
     visit '/listings'
     expect(page).to have_content "All Listings"
   end
