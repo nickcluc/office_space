@@ -18,8 +18,9 @@ group :devleopment do
 end
 
 group :development, :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'capybara'
 end
 
 gem 'devise'
+gem 'high_voltage'
