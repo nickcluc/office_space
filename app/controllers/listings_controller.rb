@@ -8,14 +8,19 @@ class ListingsController < ApplicationController
   end
 
   def create
-    listing = Listing.new(listing_params) 
+    listing = Listing.new(listing_params)
     if listing.save!
+      binding.pry
       flash[:notice] = "Successfully Created Listing"
       redirect_to listings_path
     else
       flash.now[:notice] = "Your Listing Couldn't Be Saved"
       render :new
     end
+  end
+
+  def show
+    @listing = Listing.find(params[:id])
   end
 
   private

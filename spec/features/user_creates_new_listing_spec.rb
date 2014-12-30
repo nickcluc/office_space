@@ -42,4 +42,30 @@ feature "User adds a new listing" do
     fill_in "Daily Rate", with: listing.daily_rate_cents
     click_on "Add Listing"
   end
+
+  scenario 'user incompletely fills out a form' do
+
+    listing_attrs = {
+      title: "Desk @ Launch Academy",
+      address: "33 Harrison Ave. Suite 501",
+      city: "Boston",
+      state: "MA",
+      zip_code: "02201",
+      description: "Great seat near the coffee machine!",
+      daily_rate_cents: 10000
+    }
+
+    listing = Listing.new(listing_attrs)
+    visit new_listing_path
+
+    fill_in "Title", with: listing.title
+    fill_in "Address", with: listing.address
+    fill_in "City", with: listing.city
+    fill_in "State", with: listing.state
+    fill_in "Zip code", with: listing.zip_code
+    fill_in "Description", with: listing.description
+    click_on "Add Listing"
+
+    expect(page).to have_content "Prevented"
+  end
 end

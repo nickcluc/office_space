@@ -1,6 +1,13 @@
 <h1>Create New Listing</h1>
 
 <%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <ul>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <div class="field">
     <%= f.label :title %><br />

@@ -1,1 +1,6 @@
 <h1>All Listings</h1>
+<ul>
+  <% @listings.each do |listing| %>
+    <li><a href="/listings/<%= listing.id %>"><%= listing.title %> in <%= listing.city %>, <%= listing.state %></a></li>
+  <% end %>
+</ul>
